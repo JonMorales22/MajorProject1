@@ -40,7 +40,8 @@ public class PlayerController : MonoBehaviour {
 		audiosource.Play ();
 	}
 	void Update(){
-		if (Input.GetButtonDown ("Jump")) {
+		if (Input.GetKey("up")) {
+			Debug.Log ("Jump");
 			if (isGrounded) {
 				player.velocity = new Vector2 (player.velocity.x, 0);
 				player.AddForce (new Vector2 (0, jumpForce));
