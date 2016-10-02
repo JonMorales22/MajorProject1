@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour {
 	public AudioClip deathsound;
 
 
-	private float groundCheckRadius = .02f;
+	private float groundCheckRadius = .2f;
 	private AudioSource audiosource;
 	private bool isDead = false;
 	private Rigidbody2D player;
@@ -41,8 +41,9 @@ public class PlayerController : MonoBehaviour {
 	}
 	void Update(){
 		if (Input.GetKey("up")) {
-			Debug.Log ("Jump");
+			Debug.Log (groundCheck.position + new Vector3 (0, -2, 0));
 			if (isGrounded) {
+				Debug.Log ("Jump");
 				player.velocity = new Vector2 (player.velocity.x, 0);
 				player.AddForce (new Vector2 (0, jumpForce));
 			}
@@ -53,7 +54,9 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
 		if (!isDead) {
 			
-			isGrounded=Physics2D.OverlapCircle(groundCheck.position,groundCheckRadius,groundLayers);
+			isGrounded=Physics2D.OverlapCircle(groundCheck.position+new Vector3(0,-2,0),groundCheckRadius,groundLayers);
+
+
 			float move = Input.GetAxis ("Horizontal");
 			player.velocity = new Vector2 (move * maxSpeed, player.velocity.y);
 
