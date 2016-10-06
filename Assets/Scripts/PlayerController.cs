@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour {
 	[HideInInspector]
 	public bool isGrounded = false;
 
-	public float maxSpeed=7.0f;
+	public float walkSpeed=7.0f;
+	public float maxSpeed=14.0f;
 	public float jumpForce = 750.0f; 
 
 
@@ -41,9 +42,7 @@ public class PlayerController : MonoBehaviour {
 	}
 	void Update(){
 		if (Input.GetKey("up")) {
-			Debug.Log (groundCheck.position + new Vector3 (0, -2, 0));
 			if (isGrounded) {
-				Debug.Log ("Jump");
 				player.velocity = new Vector2 (player.velocity.x, 0);
 				player.AddForce (new Vector2 (0, jumpForce));
 			}
@@ -58,8 +57,8 @@ public class PlayerController : MonoBehaviour {
 
 
 			float move = Input.GetAxis ("Horizontal");
-			player.velocity = new Vector2 (move * maxSpeed, player.velocity.y);
-
+			player.velocity = new Vector2 (move * walkSpeed, player.velocity.y);
+			
 			if((move>0.0f&&!isFacingRight) || (move<0.0&& isFacingRight)) {
 				Flip();
 			}
@@ -69,7 +68,14 @@ public class PlayerController : MonoBehaviour {
 				isDead = true;
 				playDeathSound ();
 			}
+
+			float vel = player.velocity.x;
+			walkAnimation (Mathf.Abs(vel));
 		}
+	}
+	void walkAnimation(float vel){
+		anim.SetFloat ("Velocity", vel);
+
 	}
 	void Flip()
 	{
@@ -84,7 +90,6 @@ public class PlayerController : MonoBehaviour {
 		AudioSource.PlayClipAtPoint (this.deathsound,this.transform.position);
 	}
 	void OnCollisionEnter2D(){
-		//Debug.Log ("poop");
 	}
 
 	void SetAnimationController(int num)
