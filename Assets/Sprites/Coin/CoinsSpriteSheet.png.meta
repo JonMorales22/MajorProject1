@@ -1,0 +1,549 @@
+fileFormatVersion: 2
+guid: a907f941d5dcb4855b2e5cab8dac353d
+timeCreated: 1476839850
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: CoinsSpriteSheet_0
+    21300002: CoinsSpriteSheet_1
+    21300004: CoinsSpriteSheet_2
+    21300006: CoinsSpriteSheet_3
+    21300008: CoinsSpriteSheet_4
+    21300010: CoinsSpriteSheet_5
+    21300012: CoinsSpriteSheet_6
+    21300014: CoinsSpriteSheet_7
+    21300016: CoinsSpriteSheet_8
+    21300018: CoinsSpriteSheet_9
+    21300020: CoinsSpriteSheet_10
+    21300022: CoinsSpriteSheet_11
+    21300024: CoinsSpriteSheet_12
+    21300026: CoinsSpriteSheet_13
+    21300028: CoinsSpriteSheet_14
+    21300030: CoinsSpriteSheet_15
+    21300032: CoinsSpriteSheet_16
+    21300034: CoinsSpriteSheet_17
+    21300036: CoinsSpriteSheet_18
+    21300038: CoinsSpriteSheet_19
+    21300040: CoinsSpriteSheet_20
+    21300042: CoinsSpriteSheet_21
+    21300044: CoinsSpriteSheet_22
+    21300046: CoinsSpriteSheet_23
+    21300048: CoinsSpriteSheet_24
+    21300050: CoinsSpriteSheet_25
+    21300052: CoinsSpriteSheet_26
+    21300054: CoinsSpriteSheet_27
+    21300056: CoinsSpriteSheet_28
+    21300058: CoinsSpriteSheet_29
+    21300060: CoinsSpriteSheet_30
+    21300062: CoinsSpriteSheet_31
+    21300064: CoinsSpriteSheet_32
+    21300066: CoinsSpriteSheet_33
+    21300068: CoinsSpriteSheet_34
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 675
+        width: 125
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 677
+        width: 110
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 676
+        width: 80
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 675
+        width: 27
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 676
+        width: 82
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 676
+        width: 117
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 678
+        width: 123
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 507
+        width: 124
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 507
+        width: 112
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 507
+        width: 80
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 507
+        width: 29
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 507
+        width: 80
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 507
+        width: 108
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 507
+        width: 123
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 339
+        width: 122
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 337
+        width: 108
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 339
+        width: 97
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 337
+        width: 32
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 339
+        width: 86
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 339
+        width: 127
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 339
+        width: 129
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 169
+        width: 122
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 169
+        width: 106
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 169
+        width: 78
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_24
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 168
+        width: 25
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_25
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 169
+        width: 78
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_26
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 169
+        width: 107
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_27
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 169
+        width: 122
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_29
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 0
+        width: 107
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_30
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 0
+        width: 80
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_31
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 0
+        width: 28
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_32
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 0
+        width: 80
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_33
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 0
+        width: 107
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CoinsSpriteSheet_34
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 122
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

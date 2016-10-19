@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
 	public float maxSpeed=14.0f;
 	public float jumpForce = 750.0f; 
 	public int health;
+	public int score = 0;
 
 	public  Image[] heartArray = new Image[3];
 
@@ -94,7 +95,10 @@ public class PlayerController : MonoBehaviour {
 			StartCoroutine("Die");
 		}
 	}
-
+	void IncreaseScore(int num)
+	{
+		score += num;
+	}
 	void walkAnimation(float vel){
 		anim.SetFloat ("Velocity", vel);
 
@@ -114,6 +118,14 @@ public class PlayerController : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D c){
 		if (c.gameObject.CompareTag ("Enemy"))
 			ApplyDamage ();
+	}
+
+	void OnTriggerEnter2D(Collider2D c)
+	{
+		if (c.gameObject.CompareTag ("Coin"))
+		{
+			IncreaseScore(100);
+		}
 	}
 
 	void SetAnimationController(int num)

@@ -18,12 +18,9 @@ public class EnemyScript : MonoBehaviour {
 	public LayerMask groundLayers;
 
 	public Animator anim;
-	public AudioClip footstep;
-	public AudioClip deathsound;
 
 
-	private float groundCheckRadius = .2f;
-	private AudioSource audiosource;
+	//private float groundCheckRadius = .2f;
 	private bool isDead = false;
 	private Rigidbody2D player;
 	private int move = 1;
@@ -35,11 +32,12 @@ public class EnemyScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		
-		player.velocity = new Vector2 (move * walkSpeed, player.velocity.y);
+		if (!isDead) {
+			player.velocity = new Vector2 (move * walkSpeed, player.velocity.y);
 
-		if((move>0.0f&&!isFacingRight) || (move<0.0&& isFacingRight)) {
-			Flip();
+			if ((move > 0.0f && !isFacingRight) || (move < 0.0 && isFacingRight)) {
+				Flip ();
+			}
 		}
 	}
 
