@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour {
 	public Animator anim;
 	public AudioClip footstep;
 	public AudioClip deathsound;
-
+	public AudioClip damage;
 
 	private float groundCheckRadius = .2f;
 	private AudioSource audiosource;
@@ -45,8 +45,18 @@ public class PlayerController : MonoBehaviour {
 		audiosource.clip = footstep;
 		audiosource.Play ();
 	}
+	public void playDamageSound()
+	{
+		audiosource.clip = damage;
+		audiosource.Play ();
+	}
+	void playDeathSound()
+	{
+		AudioSource.PlayClipAtPoint (this.deathsound,this.transform.position);
+	}
+
 	void Update(){
-		if (Input.GetKey("up")) {
+		if (Input.GetKey(KeyCode.Space)) {
 			if (isGrounded&&!isDead) {
 				player.velocity = new Vector2 (player.velocity.x, jumpForce);
 				//player.AddForce (new Vector2 (0, jumpForce));
@@ -68,8 +78,8 @@ public class PlayerController : MonoBehaviour {
 				Flip ();
 			}
 
-			if (Input.GetKeyUp (KeyCode.Backspace)) {
-
+			if (Input.GetKeyDown (KeyCode.Escape)) {
+				SceneManager.LoadScene (1);
 			}
 
 			float vel = player.velocity.x;
@@ -82,17 +92,21 @@ public class PlayerController : MonoBehaviour {
 		isDead = true;
 		playDeathSound ();
 		yield return new WaitForSeconds (2.0f);
-		SceneManager.LoadScene (0);
+		PlayerPrefs.SetInt ("247127CurrentPlayerScore", score);
+		SceneManager.LoadScene (1);
 	}
 
 	void ApplyDamage(){
-		int index = health;
-		index--;
-		heartArray [index].color = new Color (0, 0, 0, 1);
-		health = index;
-		if (health == 0) {
-			isDead = true;
-			StartCoroutine("Die");
+		if (health > 0) {
+			playDamageSound ();
+			int index = health;
+			index--;
+			heartArray [index].color = new Color (0, 0, 0, 1);
+			health = index;
+			if (health == 0) {
+				isDead = true;
+				StartCoroutine ("Die");
+			}
 		}
 	}
 	void IncreaseScore(int num)
@@ -111,10 +125,7 @@ public class PlayerController : MonoBehaviour {
 		transform.localScale = playerScale;
 
 	}
-	void playDeathSound()
-	{
-		AudioSource.PlayClipAtPoint (this.deathsound,this.transform.position);
-	}
+
 	void OnCollisionEnter2D(Collision2D c){
 		if (c.gameObject.CompareTag ("Enemy"))
 			ApplyDamage ();
