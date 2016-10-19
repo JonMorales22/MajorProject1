@@ -42,8 +42,10 @@ public class PlayerController : MonoBehaviour {
 
 	public void playFootStep()
 	{
-		audiosource.clip = footstep;
-		audiosource.Play ();
+		if (isGrounded) {
+			audiosource.clip = footstep;
+			audiosource.Play ();
+		}
 	}
 	public void playDamageSound()
 	{
