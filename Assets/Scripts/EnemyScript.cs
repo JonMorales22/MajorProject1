@@ -22,18 +22,19 @@ public class EnemyScript : MonoBehaviour {
 
 	//private float groundCheckRadius = .2f;
 	private bool isDead = false;
-	private Rigidbody2D player;
+	private Rigidbody2D enemyRB;
 	private int move = 1;
+	private GameObject thisGB;
 
 	// Use this for initialization
 	void Start () {
-		player = GetComponent<Rigidbody2D> ();
+		enemyRB = GetComponent<Rigidbody2D> ();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (!isDead) {
-			player.velocity = new Vector2 (move * walkSpeed, player.velocity.y);
+			enemyRB.velocity = new Vector2 (move * walkSpeed, enemyRB.velocity.y);
 
 			if ((move > 0.0f && !isFacingRight) || (move < 0.0 && isFacingRight)) {
 				Flip ();
@@ -55,5 +56,7 @@ public class EnemyScript : MonoBehaviour {
 			Flip ();
 			move *= -1;
 		}
+		if (c.gameObject.CompareTag ("Catch"))
+			Destroy (gameObject);
 	}
 }

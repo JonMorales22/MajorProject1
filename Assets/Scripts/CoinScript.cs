@@ -6,7 +6,6 @@ public class CoinScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D c)
 	{
 		if (c.gameObject.CompareTag ("Player"))
-			Debug.Log ("Player hit coin");
-			Destroy (coinGB);
+			Destroy (gameObject);
 	}
 }
