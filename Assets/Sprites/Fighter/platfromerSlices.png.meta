@@ -1,0 +1,577 @@
+fileFormatVersion: 2
+guid: fd90d3e4ce10f497ea02825e15903ec3
+timeCreated: 1476818814
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: platfromerSlices_0
+    21300002: platfromerSlices_1
+    21300004: platfromerSlices_2
+    21300006: platfromerSlices_3
+    21300008: platfromerSlices_4
+    21300010: platfromerSlices_5
+    21300012: platfromerSlices_6
+    21300014: platfromerSlices_7
+    21300016: platfromerSlices_8
+    21300018: platfromerSlices_9
+    21300020: platfromerSlices_10
+    21300022: platfromerSlices_11
+    21300024: platfromerSlices_12
+    21300026: platfromerSlices_13
+    21300028: platfromerSlices_14
+    21300030: platfromerSlices_15
+    21300032: platfromerSlices_16
+    21300034: platfromerSlices_17
+    21300036: platfromerSlices_18
+    21300038: platfromerSlices_19
+    21300040: platfromerSlices_20
+    21300042: platfromerSlices_21
+    21300044: platfromerSlices_22
+    21300046: platfromerSlices_23
+    21300048: platfromerSlices_24
+    21300050: platfromerSlices_25
+    21300052: platfromerSlices_26
+    21300054: platfromerSlices_27
+    21300056: platfromerSlices_28
+    21300058: platfromerSlices_29
+    21300060: platfromerSlices_30
+    21300062: platfromerSlices_31
+    21300064: platfromerSlices_32
+    21300066: platfromerSlices_33
+    21300068: platfromerSlices_34
+    21300070: platfromerSlices_35
+    21300072: platfromerSlices_36
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 10
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: platfromerSlices_0
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 351
+        width: 44
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_1
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 348
+        width: 46
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_2
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 349
+        width: 45
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_3
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 386
+        width: 4
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_4
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 348
+        width: 44
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_5
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 236
+        width: 66
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_6
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 235
+        width: 72
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_7
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 236
+        width: 63
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_8
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 235
+        width: 66
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_9
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 235
+        width: 72
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_10
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 237
+        width: 63
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_11
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 235
+        width: 35
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_12
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 230
+        width: 53
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_13
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 115
+        width: 54
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_14
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 120
+        width: 52
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_15
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 121
+        width: 70
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_16
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 118
+        width: 70
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_17
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 124
+        width: 54
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_18
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 125
+        width: 60
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_19
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 121
+        width: 84
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_20
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 126
+        width: 75
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_21
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 18
+        width: 44
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_22
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 19
+        width: 38
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_23
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 76
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_24
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 81
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_25
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 19
+        width: 45
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_26
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 25
+        width: 54
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_27
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 26
+        width: 51
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_28
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 22
+        width: 55
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_29
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 9
+        width: 58
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_30
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 19
+        width: 39
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_31
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 19
+        width: 39
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_32
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 18
+        width: 39
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_33
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 66
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_34
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 61
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_35
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 17
+        width: 50
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: platfromerSlices_36
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 13
+        width: 51
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

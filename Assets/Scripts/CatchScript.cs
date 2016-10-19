@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class CatchScript : MonoBehaviour {
 	public Transform player;
@@ -14,10 +15,8 @@ public class CatchScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D c){
-		Debug.Log ("Collider");
-
 		if (c.gameObject.CompareTag ("Player"))
-			player.position=new Vector3 (0, 0, 0);
+			SceneManager.LoadScene (0);
 		
 	}
 }
