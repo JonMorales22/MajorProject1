@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour {
 	public LayerMask groundLayers;
 
 	public Animator anim;
+	public AudioClip[] audioArray = new AudioClip[4];
 	public AudioClip footstep;
 	public AudioClip deathsound;
 	public AudioClip damage;
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour {
 	private AudioSource audiosource;
 	private bool isDead = false;
 	private Rigidbody2D player;
+	private bool jumpState = false;
 	// Use this for initialization
 	void Awake(){
 		audiosource = this.GetComponent<AudioSource>();
@@ -43,27 +45,36 @@ public class PlayerController : MonoBehaviour {
 	public void playFootStep()
 	{
 		if (isGrounded) {
-			audiosource.clip = footstep;
+			audiosource.clip = audioArray[0];
 			audiosource.Play ();
 		}
 	}
 	public void playDamageSound()
 	{
-		audiosource.clip = damage;
+		audiosource.clip = audioArray[1];
 		audiosource.Play ();
 	}
 	void playDeathSound()
 	{
-		AudioSource.PlayClipAtPoint (this.deathsound,this.transform.position);
+		AudioSource.PlayClipAtPoint (audioArray[2],this.transform.position);
+	}
+	void playJumpSound()
+	{
+		
+			audiosource.clip = audioArray [3];
+			audiosource.Play ();	
+	
 	}
 
 	void Update(){
 		if (Input.GetKey(KeyCode.Space)) {
 			if (isGrounded&&!isDead) {
 				player.velocity = new Vector2 (player.velocity.x, jumpForce);
-				//player.AddForce (new Vector2 (0, jumpForce));
+				//player.AddForce = new Vector2 (0, jumpForce);
+				anim.SetTrigger ("Jump"); 
 			}
 		}
+		//anim.SetBool ("isGrounded", isGrounded);
 	
 	}
 	// Update is called once per frame
@@ -89,15 +100,14 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	IEnumerator Die(){
-		anim.SetBool ("isDead", true);
-		isDead = true;
-		playDeathSound ();
-		yield return new WaitForSeconds (2.0f);
-		PlayerPrefs.SetInt ("247127CurrentPlayerScore", score);
-		SceneManager.LoadScene (1);
-	}
+	void Flip()
+	{
+		isFacingRight = !isFacingRight;
+		Vector3 playerScale = transform.localScale;
+		playerScale.x = playerScale.x*-1;
+		transform.localScale = playerScale;
 
+	}
 	void ApplyDamage(){
 		if (health > 0) {
 			playDamageSound ();
@@ -115,22 +125,26 @@ public class PlayerController : MonoBehaviour {
 	{
 		score += num;
 	}
+
 	void walkAnimation(float vel){
 		anim.SetFloat ("Velocity", vel);
 
 	}
-	void Flip()
-	{
-		isFacingRight = !isFacingRight;
-		Vector3 playerScale = transform.localScale;
-		playerScale.x = playerScale.x*-1;
-		transform.localScale = playerScale;
-
+	IEnumerator Die(){
+		anim.SetBool ("isDead", true);
+		isDead = true;
+		playDeathSound ();
+		yield return new WaitForSeconds (2.0f);
+		PlayerPrefs.SetInt ("247127CurrentPlayerScore", score);
+		SceneManager.LoadScene (1);
 	}
 
+
+
 	void OnCollisionEnter2D(Collision2D c){
-		if (c.gameObject.CompareTag ("Enemy"))
+		if (c.gameObject.CompareTag ("Enemy")) {
 			ApplyDamage ();
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D c)

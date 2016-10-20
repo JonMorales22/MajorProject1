@@ -11,4 +11,9 @@ public class ButtonScript : MonoBehaviour {
 
 		SceneManager.LoadScene (i);
 	}
+
+	public void ClearScores()
+	{
+		PlayerPrefs.DeleteAll ();
+	}
 }

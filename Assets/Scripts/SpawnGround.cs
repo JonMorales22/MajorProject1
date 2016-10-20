@@ -11,7 +11,7 @@ public class SpawnGround : MonoBehaviour {
 		for (int i = 0; i < prefabArray.Length; i++) {
 			GameObject child;
 			int randNum = chooseRandNum ();
-			Vector3 pos = new Vector3 (xValue, Random.Range(-1.5f,4.0f), 0f);
+			Vector3 pos = new Vector3 (xValue, Random.Range(-1.5f,1.5f), 0f);
 			child = (GameObject)Instantiate (prefabChoices[randNum],pos, Quaternion.identity);
 			child.transform.parent = gameObject.transform;
 			xValue += 20;
