@@ -28,8 +28,8 @@ public class ScrollScript : MonoBehaviour {
 		for (int i = 0; i < background.Length; i++) {
 			float xVal = ((playerRB.velocity.x*speed) * parallaxScales [x]) / smoothing;
 			//Debug.Log ("xVal[" + i + "] = " + xVal);
-			float yVal = ((playerRB.velocity.y/2) * parallaxScales [x]) / smoothing;
-			Vector2 offset = new Vector2 (xVal,yVal);
+			//float yVal = ((playerRB.velocity.y/2) * parallaxScales [x]) / smoothing;
+			Vector2 offset = new Vector2 (xVal,0);
 			render[i].material.mainTextureOffset += offset;
 			x--;
 		}
