@@ -16,7 +16,7 @@ public class ScrollScript : MonoBehaviour {
 		parallaxScales = new float[background.Length];
 		render = new Renderer[background.Length];
 
-		for (int i = 0; i < background.Length; i++) {
+		for (int i = 0;i<background.Length ; i++) {
 			parallaxScales [i] = background [i].transform.localPosition.z * 1;
 			render [i] = background [i].GetComponent<Renderer> ();
 		}
@@ -24,13 +24,14 @@ public class ScrollScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void LateUpdate () {
-		
+		int x = background.Length-1;
 		for (int i = 0; i < background.Length; i++) {
-			float xVal = (playerRB.velocity.x * parallaxScales [i]) / smoothing;
-			Debug.Log ("xVal[" + i + "] = " + xVal);
-			float yVal = ((playerRB.velocity.y/2) * parallaxScales [i]) / smoothing;
+			float xVal = ((playerRB.velocity.x*speed) * parallaxScales [x]) / smoothing;
+			//Debug.Log ("xVal[" + i + "] = " + xVal);
+			float yVal = ((playerRB.velocity.y/2) * parallaxScales [x]) / smoothing;
 			Vector2 offset = new Vector2 (xVal,yVal);
 			render[i].material.mainTextureOffset += offset;
+			x--;
 		}
 		//Vector2 offset = new Vector2 ((playerRB.velocity.x/smoothing),0);
 		//Debug.Log ("Offset= "+playerRB.velocity.x / smoothing);
