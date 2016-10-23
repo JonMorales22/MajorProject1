@@ -19,8 +19,8 @@ public class CatchScript : MonoBehaviour {
 		if (c.gameObject.CompareTag ("Player")) {
 			PlayerController script = playerGB.GetComponent<PlayerController> ();
 			PlayerPrefs.SetInt ("247127CurrentPlayerScore", script.score);
-			SceneManager.LoadScene (1);
-		}
+			SceneManager.LoadScene (2);
+		} 
 		
 	}
 }

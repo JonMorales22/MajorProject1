@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour {
 		//anim.SetBool ("isGrounded", isGrounded);
 	
 	}
-	// Update is called once per frame
+
 	void FixedUpdate () {
 		if (!isDead) {
 			
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour {
 			}
 
 			if (Input.GetKeyDown (KeyCode.Escape)) {
-				SceneManager.LoadScene (1);
+				SceneManager.LoadScene (2);
 			}
 
 			float vel = player.velocity.x;
@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour {
 		playDeathSound ();
 		yield return new WaitForSeconds (2.0f);
 		PlayerPrefs.SetInt ("247127CurrentPlayerScore", score);
-		SceneManager.LoadScene (1);
+		SceneManager.LoadScene (2);
 	}
 
 
