@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour {
 	private AudioSource audiosource;
 	private bool isDead = false;
 	private Rigidbody2D player;
-	private bool jumpState = false;
 	// Use this for initialization
 	void Awake(){
 		audiosource = this.GetComponent<AudioSource>();
@@ -44,10 +43,10 @@ public class PlayerController : MonoBehaviour {
 
 	public void playFootStep()
 	{
-		if (isGrounded) {
+		
 			audiosource.clip = audioArray[0];
 			audiosource.Play ();
-		}
+	
 	}
 	public void playDamageSound()
 	{
@@ -60,29 +59,34 @@ public class PlayerController : MonoBehaviour {
 	}
 	void playJumpSound()
 	{
-		
 			audiosource.clip = audioArray [3];
 			audiosource.Play ();	
 	
 	}
 
 	void Update(){
-		if (Input.GetKey(KeyCode.Space)) {
-			if (isGrounded&&!isDead) {
-				player.velocity = new Vector2 (player.velocity.x, jumpForce);
-				//player.AddForce = new Vector2 (0, jumpForce);
-				anim.SetTrigger ("Jump"); 
+		if (Input.GetKeyDown(KeyCode.Space)) {
+			if (!isJumping&isGrounded&&!isDead) {
+				isJumping = true;
+				ApplyJump ();
 			}
 		}
-		//anim.SetBool ("isGrounded", isGrounded);
 	
 	}
+	void ApplyJump()
+	{
+		if (isJumping) {
+			player.velocity = new Vector2 (player.velocity.x, jumpForce);
+			anim.SetTrigger ("Jump"); 
+		}
+		isJumping = false;
 
+	}
 	void FixedUpdate () {
 		if (!isDead) {
 			
 			isGrounded = Physics2D.OverlapCircle (groundCheck.position + new Vector3 (0, -0.5f, 0), groundCheckRadius, groundLayers);
-
+			anim.SetBool ("isGrounded",isGrounded);
 
 			float move = Input.GetAxis ("Horizontal");
 			player.velocity = new Vector2 (move * walkSpeed, player.velocity.y);
