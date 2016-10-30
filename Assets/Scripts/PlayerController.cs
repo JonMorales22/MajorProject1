@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour {
 	private float groundCheckRadius = .2f;
 	private AudioSource audiosource;
 	private bool isDead = false;
+	private bool isFalling = false;
 	private Rigidbody2D player;
 	// Use this for initialization
 	void Awake(){
@@ -84,9 +85,13 @@ public class PlayerController : MonoBehaviour {
 	}
 	void FixedUpdate () {
 		if (!isDead) {
+			if (player.velocity.y < 0)
+				anim.SetBool ("isFalling", true);
+			else
+				anim.SetBool("isFalling",false);
 			
 			isGrounded = Physics2D.OverlapCircle (groundCheck.position + new Vector3 (0, -0.5f, 0), groundCheckRadius, groundLayers);
-			anim.SetBool ("isGrounded",isGrounded);
+			anim.SetBool ("isGrounded", isGrounded);
 
 			float move = Input.GetAxis ("Horizontal");
 			player.velocity = new Vector2 (move * walkSpeed, player.velocity.y);
@@ -101,7 +106,8 @@ public class PlayerController : MonoBehaviour {
 
 			float vel = player.velocity.x;
 			walkAnimation (Mathf.Abs (vel));
-		}
+		} 
+			//player.velocity =new Vector2 (0,0);
 	}
 
 	void Flip()
@@ -112,52 +118,22 @@ public class PlayerController : MonoBehaviour {
 		transform.localScale = playerScale;
 
 	}
-	void ApplyDamage(){
-		if (health > 0) {
-			playDamageSound ();
-			int index = health;
-			index--;
-			heartArray [index].color = new Color (0, 0, 0, 1);
-			health = index;
-			if (health == 0) {
-				isDead = true;
-				StartCoroutine ("Die");
-			}
-		}
-	}
-	void IncreaseScore(int num)
-	{
-		score += num;
-	}
+		
 
 	void walkAnimation(float vel){
 		anim.SetFloat ("Velocity", vel);
 
 	}
 	IEnumerator Die(){
-		anim.SetBool ("isDead", true);
-		isDead = true;
+		//anim.SetBool ("isDead", true);
+		//isDead = true;
 		playDeathSound ();
-		yield return new WaitForSeconds (2.0f);
+		yield return new WaitForSeconds (5.0f);
 		PlayerPrefs.SetInt ("247127CurrentPlayerScore", score);
 		SceneManager.LoadScene (2);
 	}
+		
 
-
-
-	void OnCollisionEnter2D(Collision2D c){
-		if (c.gameObject.CompareTag ("Enemy")) {
-			ApplyDamage ();
-		}
-	}
-
-	void OnTriggerEnter2D(Collider2D c)
-	{
-		if (c.gameObject.CompareTag ("Coin"))
-		{
-			IncreaseScore(100);
-		}
-	}
 
 	void SetAnimationController(int num)
 	{
