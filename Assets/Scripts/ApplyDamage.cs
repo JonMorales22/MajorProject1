@@ -16,4 +16,14 @@ public class ApplyDamage : MonoBehaviour {
 		}
 
 	}
+
+	void OnTriggerEnter2D(Collider2D c)
+	{
+		if(c.gameObject.CompareTag("Player"))
+		{
+			PlayerStats stats = c.gameObject.GetComponent<PlayerStats>();
+			stats.TakeDamage(damage,playHitReaction);
+		}
+
+	}
 }

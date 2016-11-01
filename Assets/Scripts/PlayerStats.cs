@@ -5,12 +5,28 @@ using UnityEngine.SceneManagement;
 public class PlayerStats : MonoBehaviour {
 	public int health = 3;
 	public int score = 0;
+	public int lives;
+	public bool isDead;
+
 	private DisplayHealth healthScript;
-	private bool isDead;
+
 
 	void Start()
 	{
 		healthScript = GameObject.FindWithTag ("HealthUI").GetComponent<DisplayHealth>();
+		if (PlayerPrefs.HasKey ("247127CurrentPlayerHealth"))
+		{
+			Debug.Log (PlayerPrefs.GetInt ("247127CurrentPlayerHealth"));
+			TakeDamage (health - PlayerPrefs.GetInt ("247127CurrentPlayerHealth"), false);
+		}
+		/*
+		if (PlayerPrefs.HasKey ("247127CurrentPlayerLives"))
+			lives = PlayerPrefs.GetInt ("247127CurrentPlayerLives");
+		else
+			lives = 3;
+		*/	
+
+
 	}
 	void changeScore(int value)
 	{
@@ -42,8 +58,9 @@ public class PlayerStats : MonoBehaviour {
 	public void TakeDamage(int damage,bool playHitAnim){
 		if (!isDead)
 		{
-			health = health - damage;
 			healthScript.DecreaseHealth (damage);
+			health = health - damage;
+			PlayerPrefs.SetInt ("247127CurrentPlayerHealth", health);
 		}
 
 		if (health <= 0)

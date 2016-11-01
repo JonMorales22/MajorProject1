@@ -9,13 +9,16 @@ public class DisplayHealth : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		stats = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStats> ();
 		HeartArray = GetComponentsInChildren<Image>();
-		index = HeartArray.Length-1;
+		index = HeartArray.Length-1;	
 	}
 	
 	public void DecreaseHealth(int value)
 	{
-		HeartArray [index].color = new Color (0, 0, 0, 1);
-		index--;
+		int currHealth = stats.health;
+		int newHealth = stats.health - value;
+		for(int i = currHealth;i>newHealth;i--)
+			HeartArray [i-1].color = new Color (0, 0, 0, 1);	
 	}
 }
