@@ -3,31 +3,44 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour {
-	public int health = 3;
+	public int health;
 	public int score = 0;
 	public int lives;
 	public bool isDead;
 
 	private DisplayHealth healthScript;
-
+	private DisplayLives livesScript;
 
 	void Start()
 	{
 		healthScript = GameObject.FindWithTag ("HealthUI").GetComponent<DisplayHealth>();
-		if (PlayerPrefs.HasKey ("247127CurrentPlayerHealth"))
-		{
-			Debug.Log (PlayerPrefs.GetInt ("247127CurrentPlayerHealth"));
-			TakeDamage (health - PlayerPrefs.GetInt ("247127CurrentPlayerHealth"), false);
+		livesScript = GameObject.FindWithTag ("LivesUI").GetComponentInChildren<DisplayLives> ();
+
+		if (PlayerPrefs.HasKey ("247127CurrentPlayerHealth")) {
+			health = PlayerPrefs.GetInt ("247127CurrentPlayerHealth");
+			//TakeDamage (health - PlayerPrefs.GetInt ("247127CurrentPlayerHealth"), false);
 		}
-		/*
-		if (PlayerPrefs.HasKey ("247127CurrentPlayerLives"))
-			lives = PlayerPrefs.GetInt ("247127CurrentPlayerLives");
 		else
-			lives = 3;
-		*/	
+		{
+			health = 3;
+			PlayerPrefs.SetInt ("247127CurrentPlayerHealth",health);
+		}
 
+		if (PlayerPrefs.HasKey ("247127CurrentPlayerLives")) {
+			lives = PlayerPrefs.GetInt ("247127CurrentPlayerLives");
+			//if (lives <= 0)
+				//SceneManager.LoadScene (2);
+		}
+		else
+		{
+			lives = 2;
+			PlayerPrefs.SetInt ("247127CurrentPlayerLives", lives);
+		}
 
+		if (lives <= 0)
+			SceneManager.LoadScene (2);
 	}
+
 	void changeScore(int value)
 	{
 		if (!isDead)
@@ -54,6 +67,18 @@ public class PlayerStats : MonoBehaviour {
 				Destroy (c.gameObject);
 			}
 		}
+		if (c.gameObject.CompareTag ("1up")) 
+		{
+			if (!isDead)
+			{
+				lives++;
+
+				PlayerPrefs.SetInt ("247127CurrentPlayerLives", lives);
+				livesScript.playSound (transform.position);
+				livesScript.UpdateLives (1);
+				Destroy (c.gameObject);
+			}
+		}
 	}
 	public void TakeDamage(int damage,bool playHitAnim){
 		if (!isDead)
@@ -61,6 +86,8 @@ public class PlayerStats : MonoBehaviour {
 			healthScript.DecreaseHealth (damage);
 			health = health - damage;
 			PlayerPrefs.SetInt ("247127CurrentPlayerHealth", health);
+
+
 		}
 
 		if (health <= 0)
@@ -83,7 +110,7 @@ public class PlayerStats : MonoBehaviour {
 	void PlayerDie()
 	{
 		isDead = true;
-		StartCoroutine("DeathWait");
+		//StartCoroutine("DeathWait");
 		PlayerController controller = gameObject.GetComponent<PlayerController> ();
 		Rigidbody2D rb = GetComponent<Rigidbody2D> ();
 
@@ -96,14 +123,23 @@ public class PlayerStats : MonoBehaviour {
 			rb.AddForce (new Vector2 (-400, 400));
 		else
 			rb.AddForce (new Vector2 (400, 400));
-		
+
+		Debug.Log ("Lives: " + lives);
+		lives--;
+		Debug.Log ("Lives: " + lives);
+		PlayerPrefs.SetInt ("247127CurrentPlayerLives", lives);
+		PlayerPrefs.DeleteKey ("247127CurrentPlayerHealth");
 		gameObject.GetComponent<PlayerStats> ().enabled = false;
+
 	}
 
 	IEnumerator DeathWait()
 	{
-		yield return new WaitForSeconds (5.0f);
+		yield return new WaitForSeconds (.5f);
 		PlayerPrefs.SetInt ("247127CurrentPlayerScore", score);
-		SceneManager.LoadScene (2);
+		if (lives > 0)
+			SceneManager.LoadScene (1);
+		else
+			SceneManager.LoadScene (2);
 	}
 }

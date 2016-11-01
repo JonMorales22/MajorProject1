@@ -12,7 +12,8 @@ public class ApplyDamage : MonoBehaviour {
 		if(c.gameObject.CompareTag("Player"))
 		{
 			PlayerStats stats = c.gameObject.GetComponent<PlayerStats>();
-			stats.TakeDamage(damage,playHitReaction);
+			if(!stats.isDead)
+				stats.TakeDamage(damage,playHitReaction);
 		}
 
 	}
@@ -22,7 +23,8 @@ public class ApplyDamage : MonoBehaviour {
 		if(c.gameObject.CompareTag("Player"))
 		{
 			PlayerStats stats = c.gameObject.GetComponent<PlayerStats>();
-			stats.TakeDamage(damage,playHitReaction);
+			if(!stats.isDead)
+				stats.TakeDamage(damage,playHitReaction);
 		}
 
 	}

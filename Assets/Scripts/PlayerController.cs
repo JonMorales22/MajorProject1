@@ -124,15 +124,6 @@ public class PlayerController : MonoBehaviour {
 		anim.SetFloat ("Velocity", vel);
 
 	}
-	IEnumerator Die(){
-		//anim.SetBool ("isDead", true);
-		//isDead = true;
-		playDeathSound ();
-		yield return new WaitForSeconds (5.0f);
-		PlayerPrefs.SetInt ("247127CurrentPlayerScore", score);
-		SceneManager.LoadScene (2);
-	}
-		
 
 
 	void SetAnimationController(int num)
