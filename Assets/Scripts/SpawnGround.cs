@@ -9,10 +9,15 @@ public class SpawnGround : MonoBehaviour {
 		float xValue=20;
 
 		for (int i = 0; i < prefabArray.Length; i++) {
-			GameObject child;
-			int randNum = chooseRandNum ();
-			Vector3 pos = new Vector3 (xValue, Random.Range(-1.5f,1.5f), 0f);
-			child = (GameObject)Instantiate (prefabChoices[randNum],pos, Quaternion.identity);
+				GameObject child;
+				int randNum = chooseRandNum ();
+				Vector3 pos = new Vector3 (xValue, Random.Range (-1.5f, 1.5f), 0f);
+
+			if (i <prefabArray.Length-1)
+				child = (GameObject)Instantiate (prefabChoices [randNum], pos, Quaternion.identity);
+			else
+				child = (GameObject)Instantiate (prefabChoices [2], pos, Quaternion.identity);
+
 			child.transform.parent = gameObject.transform;
 			xValue += 20;
 		}
