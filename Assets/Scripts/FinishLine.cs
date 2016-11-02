@@ -10,7 +10,7 @@ public class FinishLine : MonoBehaviour {
 		{
 			Debug.Log ("Winrar!!!!11!!1!11!");
 			PlayerStats stats = c.gameObject.GetComponent<PlayerStats> ();
-			PlayerPrefs.SetInt ("Score", stats.score);
+			PlayerPrefs.SetInt ("247127CurrentPlayerScore", stats.score);
 			SceneManager.LoadScene (2);
 		}
 	}
