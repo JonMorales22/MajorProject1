@@ -67,6 +67,10 @@ public class PlayerStats : MonoBehaviour {
 				Destroy (c.gameObject);
 			}
 		}
+
+	}
+	void OnCollisionEnter2D(Collision2D c)
+	{
 		if (c.gameObject.CompareTag ("1up")) 
 		{
 			if (!isDead)
@@ -79,6 +83,7 @@ public class PlayerStats : MonoBehaviour {
 				Destroy (c.gameObject);
 			}
 		}
+
 	}
 	public void TakeDamage(int damage,bool playHitAnim){
 		if (!isDead)
