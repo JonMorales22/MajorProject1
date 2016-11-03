@@ -13,7 +13,7 @@ public class OneUpScript : MonoBehaviour {
 	private Rigidbody2D rb;
 	private int count;
 	private Animator anim;
-	private float groundCheckRadius = .2f;
+	private float groundCheckRadius = .1f;
 	// Use this for initialization
 	void Start () {
 		count = 0;
@@ -40,7 +40,7 @@ public class OneUpScript : MonoBehaviour {
 	{
 		if (isJumping && count < 4) {
 			count++;
-			rb.AddForce (new Vector2 (0, force));
+			rb.velocity =  new Vector2 (0, force);
 		}
 		else if(count>=4)
 		{
