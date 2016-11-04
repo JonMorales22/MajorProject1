@@ -47,19 +47,17 @@ public class ChestScript : MonoBehaviour {
 
 	void Spawn1Up()
 	{
-		Vector3 pos = new Vector3 (0, 0, 0)+gameObject.transform.position;
+		Vector3 pos = new Vector3 (1, 0, 0)+gameObject.transform.position;
 		child=(GameObject)Instantiate (prefab[1], pos, Quaternion.identity);
 		child.transform.SetParent (gameObject.transform);
-		Rigidbody2D rb = child.GetComponent<Rigidbody2D> ();
-		rb.velocity = new Vector2 (1*force, 1*force);
 	}
 
 	int chooseRandNum()
 	{
 		float randNum = Random.Range (0.0f, 50.0f);
-		if (randNum > 20)
+		if (randNum > 25)
 			return 1;
 		else
-			return 0;	
+			return 0;
 	}
 }
