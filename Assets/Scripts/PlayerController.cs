@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour {
 	public AudioClip deathsound;
 	public AudioClip damage;
 
-	private float groundCheckRadius = .2f;
+	private float groundCheckRadius = .1f;
 	private AudioSource audiosource;
 	private bool isDead = false;
 	private bool isFalling = false;

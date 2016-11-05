@@ -5,7 +5,9 @@ public class MovePlatform : MonoBehaviour {
 	public float speed;
 	public Transform[] waypoints;
 	public bool isMoving;
+	public bool goBackwards;
 
+	private bool isDead;
 	private Vector2 asdf;
 	private int index;
 	// Use this for initialization
@@ -17,25 +19,27 @@ public class MovePlatform : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (isMoving) {
-			float delta = speed * Time.deltaTime;
-			transform.position = Vector2.MoveTowards (transform.position, asdf, delta);
-			float distance = Mathf.Sqrt ((transform.position.y - waypoints [index].position.y) * (transform.position.y - waypoints [index].position.y));
-			//Debug.Log (distance);
-			if (distance < .01f) {
-				//Debug.Log ("if");
-				//asdf = new Vector2 (waypoints [1].position.x, waypoints [1].position.y);
-				asdf = GetWayPoint ();
+				float delta = speed * Time.deltaTime;
+				transform.position = Vector2.MoveTowards (transform.position, asdf, delta);
+				float xVal = (transform.position.x - waypoints [index].position.x) * (transform.position.x - waypoints [index].position.x);
+				float yVal = (transform.position.y - waypoints [index].position.y) * (transform.position.y - waypoints [index].position.y);
+				float distance = Mathf.Sqrt (xVal + yVal);
+				//Debug.Log (distance);
+				if (distance < .01f) {
+					//Debug.Log ("if");
+					//asdf = new Vector2 (waypoints [1].position.x, waypoints [1].position.y);
+					asdf = GetWayPoint ();
 			}
 		}
 	}
 
 	Vector2 GetWayPoint()
 	{
+
 		index++;
 		if (index == waypoints.Length)
 			index = 0;
-
-		Vector2 temp = new Vector2 (waypoints[index].position.x, waypoints[index].position.y);
+		Vector2 temp = new Vector2 (waypoints [index].position.x, waypoints [index].position.y);
 		return temp;
 	}
 

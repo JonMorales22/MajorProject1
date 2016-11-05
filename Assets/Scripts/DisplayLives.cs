@@ -13,7 +13,7 @@ public class DisplayLives : MonoBehaviour {
 		if (PlayerPrefs.HasKey ("247127CurrentPlayerLives"))
 			lives = PlayerPrefs.GetInt ("247127CurrentPlayerLives");
 		else
-			lives = 2;
+			lives = 3;
 		text.text = lives.ToString ();
 	}
 

@@ -33,7 +33,7 @@ public class PlayerStats : MonoBehaviour {
 		}
 		else
 		{
-			lives = 2;
+			lives = 3;
 			PlayerPrefs.SetInt ("247127CurrentPlayerLives", lives);
 		}
 
@@ -115,7 +115,7 @@ public class PlayerStats : MonoBehaviour {
 	void PlayerDie()
 	{
 		isDead = true;
-		//StartCoroutine("DeathWait");
+		StartCoroutine("DeathWait");
 		PlayerController controller = gameObject.GetComponent<PlayerController> ();
 		Rigidbody2D rb = GetComponent<Rigidbody2D> ();
 
@@ -140,10 +140,10 @@ public class PlayerStats : MonoBehaviour {
 
 	IEnumerator DeathWait()
 	{
-		yield return new WaitForSeconds (.5f);
+		yield return new WaitForSeconds (3.0f);
 		PlayerPrefs.SetInt ("247127CurrentPlayerScore", score);
 		if (lives > 0)
-			SceneManager.LoadScene (1);
+			SceneManager.LoadScene (3);
 		else
 			SceneManager.LoadScene (2);
 	}

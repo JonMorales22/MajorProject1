@@ -16,11 +16,11 @@ public class SawScript : MonoBehaviour {
 	void Update () {
 		float delta = speed * Time.deltaTime;
 		transform.position = Vector2.MoveTowards (transform.position, asdf, delta);
-		float distance = Mathf.Sqrt((transform.position.y-waypoints[index].position.y)*(transform.position.y-waypoints[index].position.y));
-		//Debug.Log (distance);
+		float xVal = (transform.position.x - waypoints [index].position.x) * (transform.position.x - waypoints [index].position.x);
+		float yVal = (transform.position.y - waypoints [index].position.y) * (transform.position.y - waypoints [index].position.y);
+		float distance = Mathf.Sqrt (xVal+yVal);
 		if (distance < .01f)
 		{
-			Debug.Log ("if");
 			//asdf = new Vector2 (waypoints [1].position.x, waypoints [1].position.y);
 			asdf = GetWayPoint();
 		}
