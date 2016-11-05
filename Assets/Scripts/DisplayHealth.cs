@@ -27,4 +27,12 @@ public class DisplayHealth : MonoBehaviour {
 		for(int i = currHealth;i>newHealth;i--)
 			HeartArray [i-1].color = new Color (0, 0, 0, 1);	
 	}
+
+	public void IncreaseHealth(int value)
+	{
+		int currHealth = stats.health;
+		int newHealth = currHealth + value;
+		for(int i = currHealth;i<newHealth;i++)
+			HeartArray [i].color = new Color (1, 1, 1, 1);	
+	}
 }

@@ -67,6 +67,22 @@ public class PlayerStats : MonoBehaviour {
 				Destroy (c.gameObject);
 			}
 		}
+		if (c.gameObject.CompareTag ("Heart"))
+		{
+			if (!isDead)
+			{
+				HeartScript hScript = c.GetComponent<HeartScript> ();
+				int value = hScript.value;
+				if(health+value<4)
+				{
+					healthScript.IncreaseHealth (value);
+					health += value;
+					PlayerPrefs.SetInt ("247127CurrentPlayerHealth", health);
+				}
+				hScript.PlaySound ();
+				Destroy (c.gameObject);
+			}
+		}
 
 	}
 	void OnCollisionEnter2D(Collision2D c)
