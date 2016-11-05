@@ -10,8 +10,15 @@ public class FinishLine : MonoBehaviour {
 		{
 			Debug.Log ("Winrar!!!!11!!1!11!");
 			PlayerStats stats = c.gameObject.GetComponent<PlayerStats> ();
-			PlayerPrefs.SetInt ("247127CurrentPlayerScore", stats.score);
-			SceneManager.LoadScene (2);
+			PlayerPrefs.SetInt ("247127PreviousScore", stats.score);
+
+			int temp = 0;
+			Scene scene = SceneManager.GetActiveScene ();
+			temp = scene.buildIndex+1;
+			if (temp == SceneManager.sceneCountInBuildSettings)
+				SceneManager.LoadScene (1);
+			else
+				SceneManager.LoadScene (temp);
 		}
 	}
 }
