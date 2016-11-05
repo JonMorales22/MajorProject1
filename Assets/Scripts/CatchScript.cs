@@ -19,12 +19,9 @@ public class CatchScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D c){
 		if (c.gameObject.CompareTag ("Player")) {
 			stats = c.gameObject.GetComponent<PlayerStats> ();
-			SceneManager.LoadScene (3);
-			/*if (PlayerPrefs.GetInt ("247127CurrentPlayerLives") >= 0)
-			{
-				PlayerPrefs.SetInt ("247127CurrentPlayerScore", stats.score);
-				SceneManager.LoadScene (3);
-			}*/
+
+			Scene scene = SceneManager.GetActiveScene (); 
+			SceneManager.LoadScene (scene.buildIndex);
 		} 
 	}
 }

@@ -2,10 +2,14 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 
+
 public class ButtonScript : MonoBehaviour {
+	public GameObject levelSelectUI;
+	public GameObject mainMenuUI;
+
 	void Start(){
 		Scene scene = SceneManager.GetActiveScene();
-		if (scene.buildIndex == 0 || scene.buildIndex == 2)
+		if (scene.buildIndex==0 || scene.buildIndex == 1)
 		{
 			if (PlayerPrefs.HasKey ("247127CurrentPlayerHealth"))
 				PlayerPrefs.DeleteKey ("247127CurrentPlayerHealth");
@@ -17,6 +21,20 @@ public class ButtonScript : MonoBehaviour {
 				PlayerPrefs.DeleteKey ("247127CurrentPlayerScore");
 
 	}
+
+	public void loadMainMenuUI()
+	{
+		mainMenuUI.SetActive (true);
+		levelSelectUI.SetActive (false);
+	
+	}
+		
+	public void loadLevelSelectUI()
+	{
+		levelSelectUI.gameObject.SetActive (true);
+		mainMenuUI.SetActive (false);
+	}
+
 	public void LoadScene(int i)
 	{
 		SceneManager.LoadScene (i);

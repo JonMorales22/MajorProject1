@@ -28,17 +28,15 @@ public class PlayerStats : MonoBehaviour {
 
 		if (PlayerPrefs.HasKey ("247127CurrentPlayerLives")) {
 			lives = PlayerPrefs.GetInt ("247127CurrentPlayerLives");
-			//if (lives <= 0)
-				//SceneManager.LoadScene (2);
 		}
 		else
 		{
-			lives = 3;
+			lives = 1;
 			PlayerPrefs.SetInt ("247127CurrentPlayerLives", lives);
 		}
 
 		if (lives <= 0)
-			SceneManager.LoadScene (2);
+			SceneManager.LoadScene (1);
 	}
 
 	void changeScore(int value)
@@ -159,6 +157,8 @@ public class PlayerStats : MonoBehaviour {
 
 		Debug.Log ("Lives: " + lives);
 		lives--;
+		if (lives <= 0)
+			PlayerPrefs.SetInt ("247127CurrentPlayerScore", score);
 		Debug.Log ("Lives: " + lives);
 		PlayerPrefs.SetInt ("247127CurrentPlayerLives", lives);
 		PlayerPrefs.DeleteKey ("247127CurrentPlayerHealth");
@@ -169,10 +169,14 @@ public class PlayerStats : MonoBehaviour {
 	IEnumerator DeathWait()
 	{
 		yield return new WaitForSeconds (3.0f);
-		PlayerPrefs.SetInt ("247127CurrentPlayerScore", score);
+
 		if (lives > 0)
-			SceneManager.LoadScene (3);
-		else
-			SceneManager.LoadScene (2);
+		{
+			PlayerPrefs.SetInt ("247127CurrentPlayerScore", score);
+			Scene scene = SceneManager.GetActiveScene ();
+			SceneManager.LoadScene (scene.buildIndex);
+		}
+			else
+			SceneManager.LoadScene (1);
 	}
 }

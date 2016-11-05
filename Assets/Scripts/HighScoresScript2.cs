@@ -21,12 +21,14 @@ public class HighScoresScript2 : MonoBehaviour {
 	 *	2.	If we came form WelcomeScreen, then we just have to display the stuff in PlayPrefs */
 	void Start () {
 		if (PlayerPrefs.HasKey ("247127CurrentPlayerScore")) {
+			Debug.Log("HasKey");
 			score = PlayerPrefs.GetInt ("247127CurrentPlayerScore");
 			getPlayerPrefs ();
 			checkPlayerPrefs ();
 		} 
 		else
 		{
+			Debug.Log("DoesntHaveKey");
 			gObj.GetComponent<InputScript> ().activeButtons ();
 			getPlayerPrefs ();
 			displayText ();
