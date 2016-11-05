@@ -5,8 +5,6 @@ public class ChestScript : MonoBehaviour {
 
 	public AudioClip sound;
 	public GameObject[] prefab;
-	public float force;
-
 
 	private bool isOpen;
 	private GameObject child;
@@ -31,33 +29,25 @@ public class ChestScript : MonoBehaviour {
 			isOpen = true;
 			anim.SetTrigger ("Open");
 			int randNum = chooseRandNum ();
-			if (randNum == 1)
-				SpawnCoin ();
-			else
-				Spawn1Up ();
+			Spawn (randNum);
 		}
 	}
-
-	void SpawnCoin()
-	{
-		Vector3 pos = new Vector3 (1, 1, 0)+gameObject.transform.position;
-		child=(GameObject)Instantiate (prefab[0], pos, Quaternion.identity);
-		child.transform.SetParent (gameObject.transform);
-	}
-
-	void Spawn1Up()
+	void Spawn(int index)
 	{
 		Vector3 pos = new Vector3 (1, 0, 0)+gameObject.transform.position;
-		child=(GameObject)Instantiate (prefab[1], pos, Quaternion.identity);
+		child=(GameObject)Instantiate (prefab[index], pos, Quaternion.identity);
 		child.transform.SetParent (gameObject.transform);
 	}
 
 	int chooseRandNum()
 	{
-		float randNum = Random.Range (0.0f, 50.0f);
-		if (randNum > 25)
+		
+		float randNum = Random.Range (0, 100);
+		if (randNum <= 50)
+			return 0;
+		else if (randNum > 50 && randNum < 75)
 			return 1;
 		else
-			return 0;
+			return 2;
 	}
 }
