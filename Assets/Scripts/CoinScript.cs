@@ -10,10 +10,4 @@ public class CoinScript : MonoBehaviour {
 	{
 		AudioSource.PlayClipAtPoint (coinSound,transform.position);
 	}
-	void OnTriggerEnter2D(Collider2D c)
-	{
-		if (c.gameObject.CompareTag ("Player")) {
-
-		}
-	}
 }
