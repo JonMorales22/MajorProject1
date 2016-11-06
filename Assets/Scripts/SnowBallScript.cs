@@ -5,15 +5,20 @@ public class SnowBallScript : MonoBehaviour {
 	public float delta;
 	public float deltaMass;
 
+	private float lockPos=0;
 	private Rigidbody2D rb;
 	private Vector3 deltaVector;
 	private bool isGrowing;
 	// Use this for initialization
 	void Start () {
+		//childTransform = GetComponentInChildren<Transform> ();
 		rb = GetComponent<Rigidbody2D> ();
-		deltaVector = new Vector3 (delta, delta, 0);
+		//deltaVector = new Vector3 (delta, delta, 0);
 	}
-	
+	void Update()
+	{
+		//childTransform.rotation = Quaternion.Euler(lockPos, lockPos, lockPos);
+	}
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (Mathf.Abs(rb.velocity.x) > .1)
@@ -30,10 +35,21 @@ public class SnowBallScript : MonoBehaviour {
 	{
 		while (transform.localScale.x < 5&&Mathf.Abs(rb.velocity.x)>.1)
 		{
-			rb.mass += deltaMass;
+			float temp = Mathf.Abs(rb.velocity.x / 2);
+			deltaVector = new Vector3 (temp*delta,delta*temp);
+			rb.mass += temp*deltaMass;
 			transform.localScale += deltaVector;
 			yield return new WaitForSeconds (.1f);
 		}
 		isGrowing = false;
+	}
+
+	void OnTriggerEnter2D(Collider2D c)
+	{
+		if (c.gameObject.CompareTag ("Player"))
+		{
+			Debug.Log ("Above");
+		}
+
 	}
 }
