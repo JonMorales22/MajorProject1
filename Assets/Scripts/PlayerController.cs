@@ -13,6 +13,10 @@ public class PlayerController : MonoBehaviour {
 
 	public float walkSpeed=7.0f;
 	public float maxSpeed=14.0f;
+	public float slipFactor;
+	public float asdfasdf = 3;
+
+
 	public float jumpForce = 750.0f; 
 	public int health;
 	public int score = 0;
@@ -30,8 +34,13 @@ public class PlayerController : MonoBehaviour {
 
 	private float groundCheckRadius = .1f;
 	private AudioSource audiosource;
+
 	private bool isDead = false;
 	private bool isFalling = false;
+	private bool onIce = false;
+	private bool flag = false;
+
+	private Vector3 pos;
 	private Rigidbody2D player;
 	// Use this for initialization
 	void Awake(){
@@ -76,8 +85,9 @@ public class PlayerController : MonoBehaviour {
 	}
 	void ApplyJump()
 	{
+		Debug.Log (player.velocity.x);
 		if (isJumping) {
-			player.velocity = new Vector2 (player.velocity.x, jumpForce);
+			player.AddForce(new Vector2 (player.velocity.x, jumpForce));
 			anim.SetTrigger ("Jump"); 
 		}
 		isJumping = false;
@@ -85,29 +95,53 @@ public class PlayerController : MonoBehaviour {
 	}
 	void FixedUpdate () {
 		if (!isDead) {
+
+
+			
+			isGrounded = Physics2D.OverlapCircle (groundCheck.position + new Vector3 (0, -0.5f, 0), groundCheckRadius, groundLayers);
+
 			if (player.velocity.y < 0)
 				anim.SetBool ("isFalling", true);
 			else
 				anim.SetBool("isFalling",false);
-			
-			isGrounded = Physics2D.OverlapCircle (groundCheck.position + new Vector3 (0, -0.5f, 0), groundCheckRadius, groundLayers);
+
 			anim.SetBool ("isGrounded", isGrounded);
 
-			float move = Input.GetAxis ("Horizontal");
-			player.velocity = new Vector2 (move * walkSpeed, player.velocity.y);
-			
-			if ((move > 0.0f && !isFacingRight) || (move < 0.0 && isFacingRight)) {
-				Flip ();
+
+				float move = Input.GetAxis("Horizontal");
+				if ((move > 0.0f && !isFacingRight) || (move < 0.0 && isFacingRight)) {
+					Flip ();
+				}
+				if (!onIce)
+				{
+					player.velocity = new Vector2 (move * maxSpeed, player.velocity.y);
+
+				}
+				else
+				{	
+					//Debug.Log (new Vector2 (slipFactor * 10, 0));
+					player.AddForce (new Vector2 (slipFactor * move, 0));
+					//player.velocity = new Vector2(move*10,0);
+				}
+
+			if (Input.GetKeyUp (KeyCode.LeftArrow)||Input.GetKeyUp (KeyCode.RightArrow))
+			{
+				if(onIce)
+				{
+					int direction = 1;
+					if (!isFacingRight)
+						direction = -1;
+					player.AddForce (new Vector2 (slipFactor*direction, 0),ForceMode2D.Force);
+				}
 			}
 
 			if (Input.GetKeyDown (KeyCode.Escape)) {
-				SceneManager.LoadScene (2);
+					SceneManager.LoadScene (1);
 			}
 
 			float vel = player.velocity.x;
 			walkAnimation (Mathf.Abs (vel));
 		} 
-			//player.velocity =new Vector2 (0,0);
 	}
 
 	void Flip()
@@ -125,6 +159,22 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
+	void OnCollisionEnter2D(Collision2D c)
+	{
+		if (c.gameObject.CompareTag ("Ice")) {
+			onIce = true;
+			gameObject.GetComponent<BoxCollider2D> ().sharedMaterial.friction = 0;
+		}
+	
+	}
+
+	void OnCollisionExit2D(Collision2D c)
+	{
+		if (c.gameObject.CompareTag ("Ice")) {
+			onIce = false;
+		}
+
+	}
 
 	void SetAnimationController(int num)
 	{

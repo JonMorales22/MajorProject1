@@ -15,10 +15,6 @@ public class SnowBallScript : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D> ();
 		//deltaVector = new Vector3 (delta, delta, 0);
 	}
-	void Update()
-	{
-		//childTransform.rotation = Quaternion.Euler(lockPos, lockPos, lockPos);
-	}
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (Mathf.Abs(rb.velocity.x) > .1)
