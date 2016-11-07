@@ -3,8 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class CatchScript : MonoBehaviour {
-	public Transform player;
-	//public GameObject playerGB;
+
 	private PlayerStats stats;
 	// Use this for initialization
 	void Start () {
@@ -17,11 +16,16 @@ public class CatchScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D c){
+		Debug.Log ("poo");
 		if (c.gameObject.CompareTag ("Player")) {
 			stats = c.gameObject.GetComponent<PlayerStats> ();
 
 			Scene scene = SceneManager.GetActiveScene (); 
 			SceneManager.LoadScene (scene.buildIndex);
-		} 
+		}
+		else
+		{
+			Destroy (c.gameObject);
+		}
 	}
 }

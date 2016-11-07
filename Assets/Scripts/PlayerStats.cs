@@ -31,7 +31,7 @@ public class PlayerStats : MonoBehaviour {
 		}
 		else
 		{
-			lives = 1;
+			lives = 3;
 			PlayerPrefs.SetInt ("247127CurrentPlayerLives", lives);
 		}
 
