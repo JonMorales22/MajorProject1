@@ -85,9 +85,14 @@ public class PlayerController : MonoBehaviour {
 	}
 	void ApplyJump()
 	{
-		Debug.Log (player.velocity.x);
+		
 		if (isJumping) {
-			player.AddForce(new Vector2 (player.velocity.x, jumpForce));
+			Debug.Log ("Velocity: " + player.velocity.x);
+			Vector2 temp = player.GetPointVelocity(transform.position);
+			//Debug.Log ("temp Vec:"+temp.x);
+			player.velocity=new Vector2(player.velocity.x,jumpForce);
+			//player.A
+			//player.AddForce(new Vector2(player.velocity.x,jumpForce),ForceMode2D.Force);
 			anim.SetTrigger ("Jump"); 
 		}
 		isJumping = false;
@@ -98,8 +103,8 @@ public class PlayerController : MonoBehaviour {
 
 
 			
-			isGrounded = Physics2D.OverlapCircle (groundCheck.position + new Vector3 (0, -0.5f, 0), groundCheckRadius, groundLayers);
-
+			//isGrounded = Physics2D.OverlapCircle (groundCheck.position + new Vector3 (0, -.5f, 0), groundCheckRadius, groundLayers);
+			isGrounded=true;
 			if (player.velocity.y < 0)
 				anim.SetBool ("isFalling", true);
 			else
@@ -107,23 +112,21 @@ public class PlayerController : MonoBehaviour {
 
 			anim.SetBool ("isGrounded", isGrounded);
 
-
-				float move = Input.GetAxis("Horizontal");
+			if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.RightArrow))
+			{
+				float move = Input.GetAxis ("Horizontal");
 				if ((move > 0.0f && !isFacingRight) || (move < 0.0 && isFacingRight)) {
 					Flip ();
 				}
-				if (!onIce)
-				{
-					player.velocity = new Vector2 (move * maxSpeed, player.velocity.y);
-
-				}
-				else
-				{	
+				if (!onIce) {
+					if (isGrounded)
+						player.velocity = new Vector2 (move * maxSpeed, player.velocity.y);
+				} else {	
 					//Debug.Log (new Vector2 (slipFactor * 10, 0));
 					player.AddForce (new Vector2 (slipFactor * move, 0));
 					//player.velocity = new Vector2(move*10,0);
 				}
-
+			}
 			if (Input.GetKeyUp (KeyCode.LeftArrow)||Input.GetKeyUp (KeyCode.RightArrow))
 			{
 				if(onIce)
