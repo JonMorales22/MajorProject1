@@ -8,11 +8,10 @@ public class ScrollScript : MonoBehaviour {
 
 	private float[] parallaxScales;
 	private Renderer[] render;
-
-	public Rigidbody2D playerRB;
+	private Rigidbody2D playerRB;
 	// Use this for initialization
 	void Start () {
-		//background = GetComponentsInChildren<GameObject> ();
+		playerRB = GameObject.FindWithTag ("Player").GetComponent<Rigidbody2D> ();
 		parallaxScales = new float[background.Length];
 		render = new Renderer[background.Length];
 

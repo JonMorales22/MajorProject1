@@ -39,11 +39,14 @@ public class PlayerController : MonoBehaviour {
 	private bool isFalling = false;
 	private bool onIce = false;
 	private bool flag = false;
+	private bool isButtonDown = false;
 
+	private BoxCollider2D collider;
 	private Vector3 pos;
 	private Rigidbody2D player;
 	// Use this for initialization
 	void Awake(){
+		collider=GetComponent<BoxCollider2D>();
 		audiosource = this.GetComponent<AudioSource>();
 		anim = GetComponent<Animator> ();
 		SetAnimationController (0);
@@ -101,17 +104,26 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
 		if (!isDead) {
 
-
-			
-			//isGrounded = Physics2D.OverlapCircle (groundCheck.position + new Vector3 (0, -.5f, 0), groundCheckRadius, groundLayers);
-			isGrounded=true;
-			if (player.velocity.y < 0)
-				anim.SetBool ("isFalling", true);
+			isGrounded = Physics2D.OverlapCircle (groundCheck.position + new Vector3 (0, -.5f, 0), groundCheckRadius, groundLayers);
+			if (isGrounded)
+				collider.sharedMaterial.friction = 1;
 			else
-				anim.SetBool("isFalling",false);
+				collider.sharedMaterial.friction = 0;
+			
+			if (player.velocity.y < 0)
+			{
+				anim.SetBool ("isFalling", true);
+			}
+			else
+			{
+				anim.SetBool ("isFalling", false);
+			}
 
 			anim.SetBool ("isGrounded", isGrounded);
-
+			if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.RightArrow)) {
+				isButtonDown = true;
+			} else
+				isButtonDown = false;
 			if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.RightArrow))
 			{
 				float move = Input.GetAxis ("Horizontal");
@@ -119,12 +131,11 @@ public class PlayerController : MonoBehaviour {
 					Flip ();
 				}
 				if (!onIce) {
-					if (isGrounded)
-						player.velocity = new Vector2 (move * maxSpeed, player.velocity.y);
-				} else {	
-					//Debug.Log (new Vector2 (slipFactor * 10, 0));
+					player.velocity = new Vector2 (move * maxSpeed, player.velocity.y);
+				}
+				else 
+				{	
 					player.AddForce (new Vector2 (slipFactor * move, 0));
-					//player.velocity = new Vector2(move*10,0);
 				}
 			}
 			if (Input.GetKeyUp (KeyCode.LeftArrow)||Input.GetKeyUp (KeyCode.RightArrow))
@@ -143,7 +154,8 @@ public class PlayerController : MonoBehaviour {
 			}
 
 			float vel = player.velocity.x;
-			walkAnimation (Mathf.Abs (vel));
+			anim.SetBool ("isButtonDown", isButtonDown);
+			anim.SetFloat ("Velocity", player.velocity.x);
 		} 
 	}
 
@@ -157,25 +169,28 @@ public class PlayerController : MonoBehaviour {
 	}
 		
 
-	void walkAnimation(float vel){
-		anim.SetFloat ("Velocity", vel);
 
+	void OnCollisionStay2D(Collision2D c)
+	{
+		if (c.gameObject.CompareTag ("Ice")) {
+			onIce = true;
+			player.drag = .5f;
+			gameObject.GetComponent<BoxCollider2D> ().sharedMaterial.friction = 0;
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D c)
 	{
-		if (c.gameObject.CompareTag ("Ice")) {
-			onIce = true;
-			gameObject.GetComponent<BoxCollider2D> ().sharedMaterial.friction = 0;
+		if (c.gameObject.CompareTag ("Ice")==false) {
+			onIce = false;
+			player.drag = 2.0f;
+			gameObject.GetComponent<BoxCollider2D> ().sharedMaterial.friction = 1;
 		}
-	
+
 	}
 
 	void OnCollisionExit2D(Collision2D c)
 	{
-		if (c.gameObject.CompareTag ("Ice")) {
-			onIce = false;
-		}
 
 	}
 

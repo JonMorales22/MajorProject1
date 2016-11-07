@@ -3,6 +3,8 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour {
+
+
 	public int health;
 	public int score;
 	public int lives;
