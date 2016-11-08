@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour {
 			}
 
 			if (Input.GetKeyDown (KeyCode.Escape)) {
-				SceneManager.LoadScene (2);
+				SceneManager.LoadScene (1);
 			}
 
 			float vel = player.velocity.x;

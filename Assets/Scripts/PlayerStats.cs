@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour {
 	public int health;
-	public int score = 0;
+	public int score;
 	public int lives;
 	public bool isDead;
 
@@ -15,7 +15,10 @@ public class PlayerStats : MonoBehaviour {
 	{
 		healthScript = GameObject.FindWithTag ("HealthUI").GetComponent<DisplayHealth>();
 		livesScript = GameObject.FindWithTag ("LivesUI").GetComponentInChildren<DisplayLives> ();
-
+		if (PlayerPrefs.HasKey ("247127PreviousScore"))
+			score = PlayerPrefs.GetInt ("247127PreviousScore");
+		else
+			score = 0;
 		if (PlayerPrefs.HasKey ("247127CurrentPlayerHealth")) {
 			health = PlayerPrefs.GetInt ("247127CurrentPlayerHealth");
 			//TakeDamage (health - PlayerPrefs.GetInt ("247127CurrentPlayerHealth"), false);

@@ -8,10 +8,16 @@ public class FinishLine : MonoBehaviour {
 	{
 		if (c.gameObject.CompareTag ("Player"))
 		{
-			Debug.Log ("Winrar!!!!11!!1!11!");
 			PlayerStats stats = c.gameObject.GetComponent<PlayerStats> ();
-			PlayerPrefs.SetInt ("247127CurrentPlayerScore", stats.score);
-			SceneManager.LoadScene (2);
+			PlayerPrefs.SetInt ("247127PreviousScore", stats.score);
+			Scene activeScene = SceneManager.GetActiveScene ();
+			//int temp = activeScene.buildIndex;
+			//int numOfScenes = SceneManager.sceneCountInBuildSettings;
+			if (activeScene.buildIndex < SceneManager.sceneCountInBuildSettings-1) {
+				SceneManager.LoadScene (activeScene.buildIndex + 1);
+			}
+			else
+				SceneManager.LoadScene ("HighScore");
 		}
 	}
 }

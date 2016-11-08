@@ -15,6 +15,8 @@ public class ButtonScript : MonoBehaviour {
 				PlayerPrefs.DeleteKey ("247127CurrentPlayerHealth");
 			if (PlayerPrefs.HasKey ("247127CurrentPlayerLives"))
 				PlayerPrefs.DeleteKey ("247127CurrentPlayerLives");
+			if (PlayerPrefs.HasKey ("247127PreviousScore"))
+				PlayerPrefs.DeleteKey ("247127PreviousScore");
 		}
 		if(scene.buildIndex==0)
 			if (PlayerPrefs.HasKey ("247127CurrentPlayerScore"))
